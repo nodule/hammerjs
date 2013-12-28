@@ -15,6 +15,9 @@
   "scripts": {
     "test": "chit -r"
   },
+  "dependencies": {
+    "hammerjs": "latest"
+  },
   "devDependencies": {
     "chit": "0.x.x"
   },
