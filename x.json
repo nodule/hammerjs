@@ -115,6 +115,10 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "title": "Element",
+            "type": "any"
+          },
           "event": {
             "title": "Event",
             "type": "string",
@@ -166,7 +170,7 @@
       "phrases": {
         "active": "Hammering {input.event}"
       },
-      "description": "Event",
+      "description": "Hammer",
       "ns": "hammerjs",
       "name": "hammer",
       "fn": "var proxy = {\n  hammer: function(el, cb) {\n\n    hammerjs(el, function(event) {\n\n      var startEvent = event.startEvent;\n      delete event.startEvent;\n\n      cb(startEvent, event);\n\n    });\n  }\n};\n\noutput = [proxy, 'hammer', input.element];\n"

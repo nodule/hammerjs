@@ -1,7 +1,7 @@
 {
   "name": "hammer",
   "ns": "hammerjs",
-  "description": "Event",
+  "description": "Hammer",
   "phrases": {
     "active": "Hammering {input.event}"
   },
@@ -10,6 +10,10 @@
   },
   "ports": {
     "input": {
+      "element": {
+        "title": "Element",
+        "type": "any"
+      },
       "event": {
         "title": "Event",
         "type": "string",
