@@ -1,0 +1,58 @@
+{
+  "name": "hammer",
+  "ns": "hammerjs",
+  "description": "Event",
+  "phrases": {
+    "active": "Hammering {input.event}"
+  },
+  "require": {
+    "hammerjs": "latest"
+  },
+  "ports": {
+    "input": {
+      "event": {
+        "title": "Event",
+        "type": "string",
+        "enum": [
+          "hold",
+          "tap",
+          "doubletap",
+          "drag",
+          "dragstart",
+          "dragend",
+          "dragup",
+          "dragdown",
+          "dragleft",
+          "dragright",
+          "swipe",
+          "swipeup",
+          "swipedown",
+          "swipeleft",
+          "swiperight",
+          "transform",
+          "transformstart",
+          "transformend",
+          "rotate",
+          "pinch",
+          "pinchin",
+          "pinchout",
+          "touch",
+          "release"
+        ],
+        "required": true
+      }
+    },
+    "output": {
+      "startEvent": {
+        "title": "Start Event",
+        "type": "object",
+        "description": "The Start Event"
+      },
+      "endEvent": {
+        "title": "End Event",
+        "type": "object",
+        "description": "The End Event"
+      }
+    }
+  }
+}
