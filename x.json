@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/nodule/hammerjs.git"
   },
+  "dependencies": {
+    "hammerjs": "latest"
+  },
   "nodes": [
     {
       "ports": {
