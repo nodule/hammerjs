@@ -5,9 +5,6 @@
   "phrases": {
     "active": "Hammering {input.event}"
   },
-  "require": {
-    "hammerjs": "latest"
-  },
   "ports": {
     "input": {
       "element": {
@@ -57,6 +54,11 @@
         "type": "object",
         "description": "The End Event"
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "hammerjs": "latest"
     }
   }
 }

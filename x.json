@@ -116,6 +116,11 @@
       "fn": "output = input\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "hammerjs": "latest"
+        }
+      },
       "ports": {
         "input": {
           "element": {
@@ -166,9 +171,6 @@
             "description": "The End Event"
           }
         }
-      },
-      "require": {
-        "hammerjs": "latest"
       },
       "phrases": {
         "active": "Hammering {input.event}"
