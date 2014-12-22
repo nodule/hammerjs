@@ -113,7 +113,7 @@
       "description": "Takes a hammer event and spreads it to the ports",
       "ns": "hammerjs",
       "name": "event",
-      "fn": "output = input\n"
+      "fn": "output = input.event\n"
     },
     {
       "dependencies": {
@@ -128,47 +128,44 @@
             "type": "any"
           },
           "event": {
+            "type": "array",
             "title": "Event",
-            "type": "string",
-            "enum": [
-              "hold",
-              "tap",
-              "doubletap",
-              "drag",
-              "dragstart",
-              "dragend",
-              "dragup",
-              "dragdown",
-              "dragleft",
-              "dragright",
-              "swipe",
-              "swipeup",
-              "swipedown",
-              "swipeleft",
-              "swiperight",
-              "transform",
-              "transformstart",
-              "transformend",
-              "rotate",
-              "pinch",
-              "pinchin",
-              "pinchout",
-              "touch",
-              "release"
-            ],
-            "required": true
+            "items": {
+              "type": "string",
+              "enum": [
+                "hold",
+                "tap",
+                "doubletap",
+                "drag",
+                "dragstart",
+                "dragend",
+                "dragup",
+                "dragdown",
+                "dragleft",
+                "dragright",
+                "swipe",
+                "swipeup",
+                "swipedown",
+                "swipeleft",
+                "swiperight",
+                "transform",
+                "transformstart",
+                "transformend",
+                "rotate",
+                "pinch",
+                "pinchin",
+                "pinchout",
+                "touch",
+                "release"
+              ]
+            }
           }
         },
         "output": {
-          "startEvent": {
-            "title": "Start Event",
+          "event": {
+            "title": "Event",
             "type": "object",
-            "description": "The Start Event"
-          },
-          "endEvent": {
-            "title": "End Event",
-            "type": "object",
-            "description": "The End Event"
+            "description": "The Event"
           }
         }
       },
@@ -178,7 +175,7 @@
       "description": "Hammer",
       "ns": "hammerjs",
       "name": "hammer",
-      "fn": "var proxy = {\n  hammer: function (el, cb) {\n\n    hammerjs(el, function (event) {\n\n      var startEvent = event.startEvent;\n      delete event.startEvent;\n\n      cb(startEvent, event);\n\n    });\n  }\n};\n\noutput = [proxy, 'hammer', input.element];\n"
+      "fn": "output = function() {\n\n  if(state.mc) {\n    state.destroy();\n    state.mc = null;\n  }\n\n  state.mc = new hammerjs(data);\n  state.on(input.event.join(' '), function(event) {\n    output({event: event});\n    done(); // to indicate completion.\n  });\n\n};\n"
     }
   ],
   "twigs": []

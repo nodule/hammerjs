@@ -12,47 +12,44 @@
         "type": "any"
       },
       "event": {
+        "type": "array",
         "title": "Event",
-        "type": "string",
-        "enum": [
-          "hold",
-          "tap",
-          "doubletap",
-          "drag",
-          "dragstart",
-          "dragend",
-          "dragup",
-          "dragdown",
-          "dragleft",
-          "dragright",
-          "swipe",
-          "swipeup",
-          "swipedown",
-          "swipeleft",
-          "swiperight",
-          "transform",
-          "transformstart",
-          "transformend",
-          "rotate",
-          "pinch",
-          "pinchin",
-          "pinchout",
-          "touch",
-          "release"
-        ],
-        "required": true
+        "items": {
+          "type": "string",
+          "enum": [
+            "hold",
+            "tap",
+            "doubletap",
+            "drag",
+            "dragstart",
+            "dragend",
+            "dragup",
+            "dragdown",
+            "dragleft",
+            "dragright",
+            "swipe",
+            "swipeup",
+            "swipedown",
+            "swipeleft",
+            "swiperight",
+            "transform",
+            "transformstart",
+            "transformend",
+            "rotate",
+            "pinch",
+            "pinchin",
+            "pinchout",
+            "touch",
+            "release"
+          ]
+        }
       }
     },
     "output": {
-      "startEvent": {
-        "title": "Start Event",
+      "event": {
+        "title": "Event",
         "type": "object",
-        "description": "The Start Event"
-      },
-      "endEvent": {
-        "title": "End Event",
-        "type": "object",
-        "description": "The End Event"
+        "description": "The Event"
       }
     }
   },

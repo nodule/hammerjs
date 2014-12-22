@@ -1,15 +1,14 @@
-var proxy = {
-  hammer: function (el, cb) {
+output = function() {
 
-    hammerjs(el, function (event) {
-
-      var startEvent = event.startEvent;
-      delete event.startEvent;
-
-      cb(startEvent, event);
-
-    });
+  if(state.mc) {
+    state.destroy();
+    state.mc = null;
   }
-};
 
-output = [proxy, 'hammer', input.element];
+  state.mc = new hammerjs(data);
+  state.on(input.event.join(' '), function(event) {
+    output({event: event});
+    done(); // to indicate completion.
+  });
+
+};
