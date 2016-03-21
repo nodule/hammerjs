@@ -1,1 +1,1 @@
-output = input.event
+output = $.event
