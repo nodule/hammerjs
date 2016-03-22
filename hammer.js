@@ -3,7 +3,7 @@ module.exports = {
   ns: "hammerjs",
   description: "Hammer",
   phrases: {
-    active: "Hammering"
+    active: "Hammering {input.event}"
   },
   ports: {
     input: {
@@ -57,17 +57,17 @@ module.exports = {
       hammerjs: require('hammerjs')
     }
   },
-  fn: function hammer(input, output, state, done, cb, on, hammerjs) {
+  fn: function hammer(input, $, output, state, done, cb, on, hammerjs) {
     var r = function() {
       if (state.mc) {
         state.destroy();
         state.mc = null;
       }
 
-      state.mc = new hammerjs(data);
-      state.on(input.event.join(' '), function(event) {
+      state.mc = new hammerjs($.element);
+      state.on($.event.join(' '), function(event) {
         output({
-          event: event
+          event: $.create(event)
         });
         done(); // to indicate completion.
       });

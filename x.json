@@ -113,7 +113,7 @@
       "description": "Takes a hammer event and spreads it to the ports",
       "ns": "hammerjs",
       "name": "event",
-      "fn": "output = input.event\n"
+      "fn": "// copies all the keys to ports\nvar keys = Object.keys($.event)\noutput = {}\nfor (var i = 0; i < keys.length; i++) {\n  output[keys[i]] = $.create($.event[keys[i]])\n}\n"
     },
     {
       "dependencies": {
@@ -175,7 +175,7 @@
       "description": "Hammer",
       "ns": "hammerjs",
       "name": "hammer",
-      "fn": "output = function() {\n\n  if(state.mc) {\n    state.destroy();\n    state.mc = null;\n  }\n\n  state.mc = new hammerjs(data);\n  state.on(input.event.join(' '), function(event) {\n    output({event: event});\n    done(); // to indicate completion.\n  });\n\n};\n"
+      "fn": "output = function() {\n  if(state.mc) {\n    state.destroy();\n    state.mc = null;\n  }\n\n  state.mc = new hammerjs($.element);\n  state.on($.event.join(' '), function(event) {\n    output({event: $.create(event)});\n    done(); // to indicate completion.\n  });\n};\n"
     }
   ],
   "twigs": []
